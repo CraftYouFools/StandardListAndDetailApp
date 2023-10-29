@@ -8,16 +8,16 @@ import androidx.room.RoomDatabase
 @Dao
 interface HomesDao {
 
-    @Query("select * from databaseHome")
-    fun getDatabaseProperties(): LiveData<List<databaseHome>>
+    @Query("select * from DatabaseHome")
+    fun getDatabaseProperties(): LiveData<List<DatabaseHome>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(properties: List<databaseHome>)
+    fun insertAll(properties: List<DatabaseHome>)
 
 }
 
 
-@Database(entities = [databaseHome::class], version = 1)
+@Database(entities = [DatabaseHome::class], version = 1)
 abstract class HomesDatabase: RoomDatabase() {
     abstract val homesDao: HomesDao
 }

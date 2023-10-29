@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-29:/values-v16/values-v16.xml",
+            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-40:/values-v16/values-v16.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Sogeking\\.gradle\\caches\\transforms-3\\ea81018398a5eb9877f0ba4a04db551f\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Sogeking\\.gradle\\caches\\transforms-3\\43edc55df3b5c22b93aea8041b6b233a\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Sogeking\\.gradle\\caches\\transforms-3\\78dcbb7886a7084f048896d4d349572e\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

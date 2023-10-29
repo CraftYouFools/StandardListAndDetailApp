@@ -17,5 +17,3 @@ dependencyResolutionManagement {
 rootProject.name = "StandardListAndDetilApplicationContent"
 include(":app")
 include(":app:feature")
-include(":features")
-include(":features:listanddetail")
