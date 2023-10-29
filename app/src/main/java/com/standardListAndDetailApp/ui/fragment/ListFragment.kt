@@ -1,17 +1,15 @@
 package com.standardListAndDetailApp.ui.fragment
 
-import android.app.Application
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
-import com.standardListAndDetailApp.database.DatabaseHome
+import com.google.android.material.snackbar.Snackbar
 import com.standardListAndDetailApp.ui.adapter.ListAdapter
 import com.standardListAndDetailApp.viewmodel.ListViewModel
 import com.standardListAndDetailApp.viewmodel.ViewModelFactory
@@ -74,7 +72,6 @@ class ListFragment : Fragment() {
             adapter=adapter
         }
 
-        // Observer for the network error.
         viewModel.eventNetworkError.observe(viewLifecycleOwner) { isNetworkError ->
             if (isNetworkError) onNetworkError()
         }
@@ -83,8 +80,14 @@ class ListFragment : Fragment() {
     }
 
     private fun onNetworkError() {
-        if(!viewModel.isNetworkErrorShown.value!!) {
-            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+        if(viewModel.isNetworkErrorShown.value==false) {
+            val parentLayout: View = binding.root
+            Snackbar.make(parentLayout, "Network Error", Snackbar.LENGTH_SHORT)
+                .setAction("CLOSE") { }
+                .setActionTextColor(resources.getColor(R.color.holo_red_light))
+                .show()
+
+            //Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
             viewModel.onNetworkErrorShown()
         }
     }

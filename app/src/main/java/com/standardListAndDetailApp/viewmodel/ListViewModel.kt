@@ -21,26 +21,34 @@ class ListViewModel(application: Application) : ViewModel() {
     val eventNetworkError: LiveData<Boolean>
         get() = _eventNetworkError
 
-    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+    private var _isNetworkErrorShown = MutableLiveData(false)
 
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     init {
         refreshDataFromRepository()
     }
 
+    fun onRefresh() {
+        refreshDataFromRepository()
+    }
+
     private fun refreshDataFromRepository() {
+        _eventNetworkError.value = false
         viewModelScope.launch {
             try {
                 repository.refreshList()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
+                _isLoading.value = false
 
             } catch (networkError: IOException) {
-                // Show a Toast error message and hide the progress bar.
-                if (homeList.value.isNullOrEmpty())
-                    _eventNetworkError.value = true
+                _eventNetworkError.value = true
+                _isLoading.value = false
             }
         }
     }
