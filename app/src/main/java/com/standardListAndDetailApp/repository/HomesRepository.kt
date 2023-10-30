@@ -3,17 +3,18 @@ package com.standardListAndDetailApp.repository
 import androidx.lifecycle.LiveData
 import com.standardListAndDetailApp.database.HomesDatabase
 import com.standardListAndDetailApp.database.DatabaseHome
-import com.standardListAndDetailApp.network.GslNetwork
+import com.standardListAndDetailApp.network.ListingsServiceApi
 import com.standardListAndDetailApp.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 
-class HomesRepository(private val database: HomesDatabase) {
+class HomesRepository constructor(private val database: HomesDatabase, private val listings : ListingsServiceApi) {
 
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {
-            val homes = GslNetwork.listings.getHomesListing()
+            val homes = listings.getHomesListing()
             database.homesDao.insertAll(homes.asDatabaseModel())
         }
     }
