@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.di
+package com.standardListAndDetailApp.di.app
 
 import javax.inject.Scope
 

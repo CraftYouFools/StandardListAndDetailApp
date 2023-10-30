@@ -1,6 +1,6 @@
-package com.standardListAndDetailApp.di.app
+package com.standardListAndDetailApp.di.Activity
 
 import javax.inject.Scope
 
 @Scope
-annotation class AppScope
+annotation class ActivityScope

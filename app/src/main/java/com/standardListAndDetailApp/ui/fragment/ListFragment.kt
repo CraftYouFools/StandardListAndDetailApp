@@ -1,18 +1,24 @@
 package com.standardListAndDetailApp.ui.fragment
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.AsyncListDiffer.ListListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
 import com.google.android.material.snackbar.Snackbar
+import com.standardListAndDetailApp.database.DatabaseHome
+import com.standardListAndDetailApp.navigation.INavigator
+import com.standardListAndDetailApp.navigation.Navigator
 import com.standardListAndDetailApp.ui.adapter.ListAdapter
 import com.standardListAndDetailApp.viewmodel.ListViewModel
 import com.standardListAndDetailApp.viewmodel.ViewModelFactory
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,10 +30,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListFragment : Fragment() {
+class ListFragment : BaseFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+
+    @Inject
+    lateinit var navigator : INavigator
 
     private lateinit var binding: FragmentListBinding
 
@@ -37,12 +47,12 @@ class ListFragment : Fragment() {
         }
         ViewModelProvider(this, ViewModelFactory(activity.application))[ListViewModel::class.java]
     }
-    private val adapter = ListAdapter()
+
+    private lateinit var adapter : ListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        injector.inject(this)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -56,8 +66,8 @@ class ListFragment : Fragment() {
                 adapter.setHomeList(this)
             }
         }
-
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,6 +76,12 @@ class ListFragment : Fragment() {
         binding = FragmentListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+
+        adapter = ListAdapter {
+            Toast.makeText(context,"id : "+it.id+" url : "+it.url,Toast.LENGTH_SHORT).show()
+            navigator.navigateToHomeDetail(it)
+        }
+
         binding.rvList.adapter = adapter
         binding.rvList.apply {
             layoutManager = LinearLayoutManager(context)
@@ -84,7 +100,7 @@ class ListFragment : Fragment() {
             val parentLayout: View = binding.root
             Snackbar.make(parentLayout, "Network Error", Snackbar.LENGTH_SHORT)
                 .setAction("CLOSE") { }
-                .setActionTextColor(resources.getColor(R.color.holo_red_light))
+                .setActionTextColor(resources.getColor(android.R.color.holo_red_light))
                 .show()
 
             //Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()

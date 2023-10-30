@@ -12,7 +12,7 @@ import com.example.standardlistanddetailapplicationcontent.R
 import com.example.standardlistanddetailapplicationcontent.databinding.ListAdapterBinding
 import com.standardListAndDetailApp.database.DatabaseHome
 
-class ListAdapter: RecyclerView.Adapter<ListViewHolder>() {
+class ListAdapter(private val itemClickListener: (DatabaseHome)->Unit): RecyclerView.Adapter<ListViewHolder>() {
 
     private var homes = mutableListOf<DatabaseHome>()
 
@@ -24,7 +24,13 @@ class ListAdapter: RecyclerView.Adapter<ListViewHolder>() {
 
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ListViewHolder =
-        ListViewHolder(ListAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        ListViewHolder(
+            ListAdapterBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            ), itemClickListener
+        )
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.apply {
@@ -53,8 +59,12 @@ class ListAdapter: RecyclerView.Adapter<ListViewHolder>() {
         }
     }
 }
-class ListViewHolder(private val binding: ListAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
+class ListViewHolder(
+    private val binding: ListAdapterBinding,
+    val itemClickListener: (DatabaseHome) -> Unit
+) : RecyclerView.ViewHolder(binding.root) {
     fun bind(home: DatabaseHome) {
-        binding.p= home
+        binding.p = home
+        binding.root.setOnClickListener { itemClickListener(home) }
     }
 }

@@ -12,9 +12,10 @@ android {
 
     defaultConfig {
         applicationId = "com.example.standardlistanddetailapplicationcontent"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = 26
+        targetSdk = 34
         versionCode = 1
+        versionName = "1.0"
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -80,10 +81,24 @@ dependencies {
 
     // DI
     // Adds libraries defining annotations to only the compile classpath.
-    compileOnly("com.google.dagger:dagger:2.28.3")
+   // compileOnly("com.google.dagger:dagger:2.28.3")
     // Adds the annotation processor dependency to the annotation processor classpath.
-    annotationProcessor("com.google.dagger:dagger-compiler:2.28.1")
+   // annotationProcessor("com.google.dagger:dagger-compiler:2.28.1")
 
+
+    //dagger2
+    api ("com.google.dagger:dagger:2.24")
+    api ("com.google.dagger:dagger-android:2.24")
+    //api ("com.google.dagger:dagger-android-support:2.24")
+
+    annotationProcessor ("com.google.dagger:dagger-compiler:2.24")
+    kapt ("com.google.dagger:dagger-compiler:2.24")
+
+    annotationProcessor ("com.google.dagger:dagger-android-processor:2.24")
+    kapt ("com.google.dagger:dagger-android-processor:2.24")
+
+    compileOnly ("javax.annotation:jsr250-api:1.0")
+    implementation ("javax.inject:javax.inject:1")
 
 
 }
