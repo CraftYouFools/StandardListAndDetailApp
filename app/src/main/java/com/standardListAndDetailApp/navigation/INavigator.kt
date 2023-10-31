@@ -4,6 +4,5 @@ import com.standardListAndDetailApp.database.DatabaseHome
 
 interface INavigator {
     fun navigateToHomeDetail(home: DatabaseHome)
-    fun navigateBack()
-
+    fun attachHomeList()
 }

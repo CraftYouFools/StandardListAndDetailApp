@@ -11,4 +11,6 @@ import dagger.Subcomponent
 interface PresentationComponent {
     fun inject(fragment: ListFragment)
 
+    fun inject(activity: MainActivity)
+
 }

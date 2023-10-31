@@ -51,7 +51,6 @@ class ListAdapter(private val itemClickListener: (DatabaseHome)->Unit): Recycler
                 return
             Glide.with(thumbs)
                 .load(url)
-                .circleCrop()
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_foreground)
                 .fallback(R.drawable.ic_launcher_foreground)

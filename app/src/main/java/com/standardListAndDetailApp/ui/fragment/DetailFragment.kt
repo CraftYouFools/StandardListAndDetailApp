@@ -41,15 +41,6 @@ class DetailFragment : BaseFragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(homeId: Int) =
             DetailFragment().apply {
@@ -57,5 +48,8 @@ class DetailFragment : BaseFragment() {
                     putInt(HOME_DETAIL_ID, homeId)
                 }
             }
+
+        const val FRAGMENT_LIST_NAME = "DetailFragment"
+
     }
 }

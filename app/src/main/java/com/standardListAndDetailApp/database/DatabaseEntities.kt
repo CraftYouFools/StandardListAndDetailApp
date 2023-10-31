@@ -14,7 +14,7 @@ data class DatabaseHome constructor(
     val url: String?,
     val price: Long?,
     val professional: String?,
-    val propertyType: String?,
+    val homeType: String?,
     val offerType: Int?,
     val rooms: Int?,
 )
@@ -33,7 +33,7 @@ fun List<DatabaseHome>.asDomainModel(): List<CloudHomeItem> {
             it.url,
             it.price,
             it.professional,
-            it.propertyType,
+            it.homeType,
             it.offerType,
             it.rooms,)
     }
