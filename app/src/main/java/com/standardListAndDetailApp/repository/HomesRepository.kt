@@ -7,7 +7,6 @@ import com.standardListAndDetailApp.network.ListingsServiceApi
 import com.standardListAndDetailApp.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 
 class HomesRepository constructor(private val database: HomesDatabase, private val listings : ListingsServiceApi) {
@@ -19,6 +18,15 @@ class HomesRepository constructor(private val database: HomesDatabase, private v
         }
     }
 
-    val homes:LiveData<List<DatabaseHome>> = database.homesDao.getDatabaseProperties()
+    suspend fun refreshHomeItem(homeId: Int) {
+        withContext(Dispatchers.IO) {
+            val home = listings.getHomeDetail(homeId.toString())
+            database.homesDao.insertHome(home.asDatabaseModel())
+        }
+    }
+
+    val homes:LiveData<List<DatabaseHome>> = database.homesDao.getDatabaseHomes()
+
+    fun getHome(homeId : Int) :LiveData<DatabaseHome> = database.homesDao.getDatabaseHome(homeId)
 
 }

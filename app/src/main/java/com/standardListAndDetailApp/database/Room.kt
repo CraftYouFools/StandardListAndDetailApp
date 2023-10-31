@@ -9,10 +9,16 @@ import androidx.room.RoomDatabase
 interface HomesDao {
 
     @Query("select * from DatabaseHome")
-    fun getDatabaseProperties(): LiveData<List<DatabaseHome>>
+    fun getDatabaseHomes(): LiveData<List<DatabaseHome>>
+
+    @Query("select * from DatabaseHome where id = :id")
+    fun getDatabaseHome(id: Int): LiveData<DatabaseHome>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(properties: List<DatabaseHome>)
+    fun insertAll(homes: List<DatabaseHome>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertHome(home: DatabaseHome)
 
 }
 

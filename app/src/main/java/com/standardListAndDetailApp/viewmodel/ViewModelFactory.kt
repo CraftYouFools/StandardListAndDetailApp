@@ -9,6 +9,8 @@ class ViewModelFactory constructor(private val application: Application): ViewMo
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
             ListViewModel(application) as T
+        } else if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            DetailViewModel(application) as T
         } else {
             throw IllegalArgumentException("ViewModel Not Found")
         }

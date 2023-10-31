@@ -6,7 +6,10 @@ import com.standardListAndDetailApp.database.DatabaseHome
 import com.standardListAndDetailApp.domain.CloudHomeItem
 
 @JsonClass(generateAdapter = true)
-data class NetWorkHomeItemContainer(@Json(name = "items") val homeItemList: List<HomeItem>)
+data class NetWorkHomeListItemContainer(@Json(name = "items") val homeItemList: List<HomeItem>)
+
+@JsonClass(generateAdapter = true)
+data class NetWorkHomeItemContainer(val homeItem: HomeItem)
 
 @JsonClass(generateAdapter = true)
 data class HomeItem(
@@ -25,7 +28,7 @@ data class HomeItem(
 /**
  * Convert Network results to database objects
  */
-fun NetWorkHomeItemContainer.asDomainModel(): List<CloudHomeItem> {
+fun NetWorkHomeListItemContainer.asDomainModel(): List<CloudHomeItem> {
     return homeItemList.map {
         CloudHomeItem(
             it.bedrooms,
@@ -46,7 +49,7 @@ fun NetWorkHomeItemContainer.asDomainModel(): List<CloudHomeItem> {
 /**
  * Convert Network results to database objects
  */
-fun NetWorkHomeItemContainer.asDatabaseModel(): List<DatabaseHome> {
+fun NetWorkHomeListItemContainer.asDatabaseModel(): List<DatabaseHome> {
     return homeItemList.map {
         DatabaseHome(
             it.bedrooms,
@@ -62,3 +65,25 @@ fun NetWorkHomeItemContainer.asDatabaseModel(): List<DatabaseHome> {
         )
     }
 }
+
+/**
+ * Convert Network results to database objects
+ */
+fun NetWorkHomeItemContainer.asDatabaseModel(): DatabaseHome {
+    return with(homeItem) {
+        DatabaseHome(
+            bedrooms,
+            city,
+            id,
+            area,
+            url,
+            price,
+            professional,
+            propertyType,
+            offerType,
+            rooms,
+        )
+    }
+}
+
+
