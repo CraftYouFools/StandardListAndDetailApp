@@ -1,17 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="android.R.drawable" />
+        <variable
+            name="viewModel"
+            type="com.standardListAndDetailApp.viewmodel.DetailViewModel"/>
+        <variable
+            name="p"
+            type="com.standardListAndDetailApp.database.DatabaseHome" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{p.homeType}"
+            android:visibility="@{p.homeType==null ? View.GONE : View.VISIBLE}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_house"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:padding="8dp"
+                android:scaleType="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadImage="@{p.url}"
+                app:setImageDrawableP="@{p.url==null}" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E15B6395"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@{p.city}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:visibility="@{p.city==null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_house"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{`Prix : `+p.price+` €`}"
+            android:visibility="@{p.price==null ? View.GONE : View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/tv_surface_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{`Surface : `+p.area+` m²`}"
+            android:visibility="@{p.area==null ? View.GONE : View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/tv_room_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Nombre de chambres : `+p.rooms.toString()}"
+            android:layout_margin="8dp"
+            android:visibility="@{p.rooms==null ? View.GONE : View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/tv_professional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Contact : `+p.professional}"
+            android:layout_margin="8dp"
+            android:visibility="@{p.professional==null ? View.GONE : View.VISIBLE}" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

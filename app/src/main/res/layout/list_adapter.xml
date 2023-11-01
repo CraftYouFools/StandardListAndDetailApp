@@ -43,7 +43,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_type"
                 app:loadImage="@{p.url}"
-                app:srcCompat="@drawable/icons_home_100"
+                app:setImageDrawableP = "@{p.url==null}"
                 tools:visibility="visible" />
 
             <TextView

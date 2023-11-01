@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.ui
+package com.standardListAndDetailApp.ui.Activity
 
 import android.os.Bundle
 import com.example.standardlistanddetailapplicationcontent.R

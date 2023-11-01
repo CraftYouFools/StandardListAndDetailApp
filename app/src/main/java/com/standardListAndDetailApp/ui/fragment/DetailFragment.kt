@@ -1,12 +1,15 @@
 package com.standardListAndDetailApp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.standardlistanddetailapplicationcontent.R
+import com.example.standardlistanddetailapplicationcontent.databinding.FragmentDetailBinding
+import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
 import com.standardListAndDetailApp.viewmodel.DetailViewModel
 import com.standardListAndDetailApp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
@@ -28,6 +31,8 @@ class DetailFragment : BaseFragment() {
 
     private var homeId: Int? = null
 
+    private lateinit var binding: FragmentDetailBinding
+
     private val viewModel: DetailViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
@@ -41,14 +46,6 @@ class DetailFragment : BaseFragment() {
         arguments?.let {
             homeId = it.getInt(HOME_DETAIL_ID)
         }
-
-        CoroutineScope(Dispatchers.IO).launch {
-            homeId?.let {
-                viewModel.refreshHome(it)
-            }
-        }
-
-
     }
 
     override fun onCreateView(
@@ -57,18 +54,19 @@ class DetailFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        binding = FragmentDetailBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel._home?.observe(viewLifecycleOwner) { home ->
-            home.apply {
 
-
-            }
+        viewModel.home.observe(viewLifecycleOwner) { home ->
+            binding.p = home
         }
     }
 
