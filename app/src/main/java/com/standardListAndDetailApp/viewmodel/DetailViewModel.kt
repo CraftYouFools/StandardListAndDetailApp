@@ -4,13 +4,20 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
+import androidx.lifecycle.viewModelScope
 import com.standardListAndDetailApp.ListAndDetailApplication
 import com.standardListAndDetailApp.database.DatabaseHome
 import com.standardListAndDetailApp.database.getDatabase
 import com.standardListAndDetailApp.repository.HomesRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class DetailViewModel(application: Application) : ViewModel() {
-
 
     private val repository: HomesRepository = HomesRepository(getDatabase(application),(application as ListAndDetailApplication).appComponent.api())
 
@@ -18,8 +25,12 @@ class DetailViewModel(application: Application) : ViewModel() {
     val home: LiveData<DatabaseHome>
         get() = _home
 
-    fun refreshHome(homeId : Int) {
-        _home.value = repository.getHome(homeId).value
+    fun getHome(homeId: Int) {
+        viewModelScope.launch {
+            repository.getHome(homeId).asFlow().collect {
+                _home.value = it
+            }
+        }
     }
 
 }

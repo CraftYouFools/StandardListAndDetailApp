@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-40:/values-in/values-in.xml",
+            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-42:/values-in/values-in.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Sogeking\\.gradle\\caches\\transforms-3\\78dcbb7886a7084f048896d4d349572e\\transformed\\core-1.12.0\\res\\values-in\\values-in.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-40:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.standardlistanddetailapplicationcontent.app-mergeDebugResources-42:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Sogeking\\.gradle\\caches\\transforms-3\\ea81018398a5eb9877f0ba4a04db551f\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",

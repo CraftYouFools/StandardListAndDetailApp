@@ -56,6 +56,8 @@ dependencies {
 
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
 
     implementation("androidx.room:room-common:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
@@ -99,6 +101,9 @@ dependencies {
 
     compileOnly ("javax.annotation:jsr250-api:1.0")
     implementation ("javax.inject:javax.inject:1")
+
+
+
 
 
 }

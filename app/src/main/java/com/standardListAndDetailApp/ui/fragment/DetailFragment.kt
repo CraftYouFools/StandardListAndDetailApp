@@ -46,6 +46,10 @@ class DetailFragment : BaseFragment() {
         arguments?.let {
             homeId = it.getInt(HOME_DETAIL_ID)
         }
+
+        homeId?.let {
+            viewModel.getHome(it)
+        }
     }
 
     override fun onCreateView(
@@ -53,7 +57,6 @@ class DetailFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
@@ -64,7 +67,6 @@ class DetailFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel.home.observe(viewLifecycleOwner) { home ->
             binding.p = home
         }
