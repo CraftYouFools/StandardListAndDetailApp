@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.network
+package com.standardListAndDetailApp.repository.network
 
 import retrofit2.http.GET
 import retrofit2.http.Path

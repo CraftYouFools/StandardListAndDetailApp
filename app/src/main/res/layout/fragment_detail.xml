@@ -12,7 +12,7 @@
             type="com.standardListAndDetailApp.viewmodel.DetailViewModel"/>
         <variable
             name="p"
-            type="com.standardListAndDetailApp.database.DatabaseHome" />
+            type="com.standardListAndDetailApp.repository.database.DatabaseHome" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat

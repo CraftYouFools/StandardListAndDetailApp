@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.standardListAndDetailApp.ListAndDetailApplication
-import com.standardListAndDetailApp.database.DatabaseHome
-import com.standardListAndDetailApp.database.getDatabase
+import com.standardListAndDetailApp.repository.database.DatabaseHome
+import com.standardListAndDetailApp.repository.database.getDatabase
 import com.standardListAndDetailApp.repository.HomesRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

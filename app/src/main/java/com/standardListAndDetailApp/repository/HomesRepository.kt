@@ -1,10 +1,10 @@
 package com.standardListAndDetailApp.repository
 
 import androidx.lifecycle.LiveData
-import com.standardListAndDetailApp.database.HomesDatabase
-import com.standardListAndDetailApp.database.DatabaseHome
-import com.standardListAndDetailApp.network.ListingsServiceApi
-import com.standardListAndDetailApp.network.asDatabaseModel
+import com.standardListAndDetailApp.repository.database.HomesDatabase
+import com.standardListAndDetailApp.repository.database.DatabaseHome
+import com.standardListAndDetailApp.repository.network.ListingsServiceApi
+import com.standardListAndDetailApp.repository.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

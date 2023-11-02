@@ -1,8 +1,8 @@
-package com.standardListAndDetailApp.network
+package com.standardListAndDetailApp.repository.network
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import com.standardListAndDetailApp.database.DatabaseHome
+import com.standardListAndDetailApp.repository.database.DatabaseHome
 import com.standardListAndDetailApp.domain.CloudHomeItem
 
 @JsonClass(generateAdapter = true)

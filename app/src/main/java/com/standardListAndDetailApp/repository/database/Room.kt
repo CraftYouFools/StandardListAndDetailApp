@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.database
+package com.standardListAndDetailApp.repository.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData

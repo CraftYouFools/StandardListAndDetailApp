@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="p" type="com.standardListAndDetailApp.database.DatabaseHome" />
+            name="p" type="com.standardListAndDetailApp.repository.database.DatabaseHome" />
     </data>
 
     <androidx.cardview.widget.CardView

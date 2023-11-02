@@ -1,6 +1,6 @@
 package com.standardListAndDetailApp.navigation
 
-import com.standardListAndDetailApp.database.DatabaseHome
+import com.standardListAndDetailApp.repository.database.DatabaseHome
 
 interface INavigator {
     fun navigateToHomeDetail(home: DatabaseHome)

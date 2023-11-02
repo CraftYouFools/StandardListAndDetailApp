@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.standardlistanddetailapplicationcontent.R
 import com.example.standardlistanddetailapplicationcontent.databinding.ListAdapterBinding
-import com.standardListAndDetailApp.database.DatabaseHome
+import com.standardListAndDetailApp.repository.database.DatabaseHome
 
 class ListAdapter(private val itemClickListener: (DatabaseHome)->Unit): RecyclerView.Adapter<ListViewHolder>() {
 

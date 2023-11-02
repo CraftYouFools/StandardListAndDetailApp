@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.database
+package com.standardListAndDetailApp.repository.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.AsyncListDiffer.ListListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
 import com.google.android.material.snackbar.Snackbar
-import com.standardListAndDetailApp.database.DatabaseHome
+import com.standardListAndDetailApp.repository.database.DatabaseHome
 import com.standardListAndDetailApp.navigation.INavigator
 import com.standardListAndDetailApp.navigation.Navigator
 import com.standardListAndDetailApp.repository.HomesRepository
