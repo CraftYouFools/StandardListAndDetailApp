@@ -35,9 +35,6 @@ class ListFragment : BaseFragment() {
     private lateinit var binding: FragmentListBinding
 
     private val viewModel: ListViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
-        }
         ViewModelProvider(this, myViewModelFactory)[ListViewModel::class.java]
     }
 
