@@ -7,9 +7,13 @@ import com.standardListAndDetailApp.network.ListingsServiceApi
 import com.standardListAndDetailApp.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 
-class HomesRepository constructor(private val database: HomesDatabase, private val listings : ListingsServiceApi) {
+class HomesRepository @Inject constructor(
+    private val database: HomesDatabase,
+    private val listings: ListingsServiceApi
+) {
 
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {

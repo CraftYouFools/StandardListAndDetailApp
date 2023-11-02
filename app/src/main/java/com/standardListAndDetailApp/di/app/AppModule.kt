@@ -2,6 +2,8 @@ package com.standardListAndDetailApp.di.app
 
 import android.app.Application
 import com.standardListAndDetailApp.Constants
+import com.standardListAndDetailApp.database.HomesDatabase
+import com.standardListAndDetailApp.database.getDatabase
 import com.standardListAndDetailApp.network.ListingsServiceApi
 import dagger.Module
 import dagger.Provides
@@ -28,5 +30,13 @@ class AppModule(private val application: Application) {
     fun api (retrofit: Retrofit) : ListingsServiceApi {
         return retrofit.create(ListingsServiceApi::class.java)
     }
+
+    @Provides
+    @AppScope
+    fun database(application: Application): HomesDatabase {
+        return getDatabase(application)
+    }
+
+
 
 }

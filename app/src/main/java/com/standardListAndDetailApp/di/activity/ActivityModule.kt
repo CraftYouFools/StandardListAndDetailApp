@@ -1,12 +1,11 @@
-package com.standardListAndDetailApp.di.Activity
+package com.standardListAndDetailApp.di.activity
 
 import androidx.appcompat.app.AppCompatActivity
-import com.standardListAndDetailApp.Constants
+import androidx.fragment.app.FragmentManager
 import com.standardListAndDetailApp.navigation.INavigator
 import com.standardListAndDetailApp.navigation.Navigator
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 
 @Module
 class ActivityModule(private val activity: AppCompatActivity) {
@@ -15,7 +14,12 @@ class ActivityModule(private val activity: AppCompatActivity) {
     fun activity() = activity
 
     @Provides
-    fun navigator(activity: AppCompatActivity) : INavigator = Navigator(activity)
+    fun fragmentManager() = activity.supportFragmentManager
+
+    @Provides
+    @ActivityScope
+    fun navigator(fragmentManager: FragmentManager) : INavigator = Navigator(fragmentManager)
+
 
 
 }

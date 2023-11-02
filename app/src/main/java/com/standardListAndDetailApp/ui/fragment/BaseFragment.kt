@@ -4,9 +4,8 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import com.example.standardlistanddetailapplicationcontent.R
-import com.standardListAndDetailApp.di.presentation.DaggerPresentationComponent
 import com.standardListAndDetailApp.di.presentation.PresentationModule
-import com.standardListAndDetailApp.ui.Activity.BaseActivity
+import com.standardListAndDetailApp.ui.activity.BaseActivity
 
 @BindingAdapter("app:setImageDrawableP")
 fun setImageDrawableP(view: ImageView, add: Boolean) {
@@ -16,12 +15,8 @@ fun setImageDrawableP(view: ImageView, add: Boolean) {
 }
 open class BaseFragment : Fragment() {
 
-  /*  private val presentationComponent by lazy {
-        (requireActivity() as BaseActivity).activityComponent.newPresentationComponent()
-    }*/
-
     private val presentationComponent by lazy {
-        DaggerPresentationComponent.builder().presentationModule(PresentationModule((requireActivity() as BaseActivity).activityComponent)).build()
+        (requireActivity() as BaseActivity).activityComponent.newPresentationComponent(PresentationModule())
     }
 
     protected val injector get() = presentationComponent

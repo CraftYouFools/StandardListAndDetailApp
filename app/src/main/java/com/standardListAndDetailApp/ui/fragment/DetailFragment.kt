@@ -10,12 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.standardlistanddetailapplicationcontent.R
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentDetailBinding
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
+import com.standardListAndDetailApp.repository.HomesRepository
 import com.standardListAndDetailApp.viewmodel.DetailViewModel
 import com.standardListAndDetailApp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,15 +35,20 @@ class DetailFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDetailBinding
 
+    @Inject
+    lateinit var repository: HomesRepository
+
     private val viewModel: DetailViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProvider(this, ViewModelFactory(activity.application))[DetailViewModel::class.java]
+        ViewModelProvider(this, ViewModelFactory(repository))[DetailViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        injector.inject(this)
 
         arguments?.let {
             homeId = it.getInt(HOME_DETAIL_ID)

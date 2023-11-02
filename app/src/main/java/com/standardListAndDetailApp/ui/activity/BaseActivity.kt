@@ -1,12 +1,8 @@
-package com.standardListAndDetailApp.ui.Activity
+package com.standardListAndDetailApp.ui.activity
 
-import android.window.OnBackInvokedDispatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.standardListAndDetailApp.ListAndDetailApplication
-import com.standardListAndDetailApp.di.Activity.ActivityComponent
-import com.standardListAndDetailApp.di.Activity.ActivityModule
-import com.standardListAndDetailApp.di.Activity.DaggerActivityComponent
-import com.standardListAndDetailApp.di.presentation.DaggerPresentationComponent
+import com.standardListAndDetailApp.di.activity.ActivityModule
 import com.standardListAndDetailApp.di.presentation.PresentationComponent
 import com.standardListAndDetailApp.di.presentation.PresentationModule
 
@@ -15,14 +11,12 @@ open class BaseActivity: AppCompatActivity() {
     private val appComponent get() = (application as ListAndDetailApplication).appComponent
 
 
-    val activityComponent: ActivityComponent by lazy {
-        DaggerActivityComponent.builder()
-            .activityModule(ActivityModule(this))
-            .build()
+    val activityComponent by lazy {
+        appComponent.newActivityComponent(ActivityModule(this))
     }
 
     private val presentationComponent by lazy {
-        DaggerPresentationComponent.builder().presentationModule(PresentationModule(this.activityComponent)).build()
+        activityComponent.newPresentationComponent(PresentationModule())
     }
 
     protected val injector: PresentationComponent get() = presentationComponent

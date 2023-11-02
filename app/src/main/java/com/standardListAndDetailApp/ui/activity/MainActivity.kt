@@ -1,9 +1,8 @@
-package com.standardListAndDetailApp.ui.Activity
+package com.standardListAndDetailApp.ui.activity
 
 import android.os.Bundle
 import com.example.standardlistanddetailapplicationcontent.R
 import com.standardListAndDetailApp.navigation.INavigator
-import com.standardListAndDetailApp.ui.Activity.BaseActivity
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {

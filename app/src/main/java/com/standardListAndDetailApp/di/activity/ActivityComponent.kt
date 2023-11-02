@@ -1,18 +1,14 @@
-package com.standardListAndDetailApp.di.Activity
+package com.standardListAndDetailApp.di.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import com.standardListAndDetailApp.di.presentation.PresentationComponent
+import com.standardListAndDetailApp.di.presentation.PresentationModule
 import com.standardListAndDetailApp.navigation.INavigator
-import dagger.BindsInstance
 import dagger.Component
 import dagger.Subcomponent
 
 @ActivityScope
-@Component(modules = [ActivityModule::class])
+@Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
-
-    fun activity() : AppCompatActivity
-
-    fun navigator() : INavigator
-
+    fun newPresentationComponent(presentationModule: PresentationModule): PresentationComponent
 }

@@ -11,10 +11,7 @@ import com.standardListAndDetailApp.repository.HomesRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class ListViewModel(application: Application) : ViewModel() {
-
-
-    private val repository: HomesRepository = HomesRepository(getDatabase(application),(application as ListAndDetailApplication).appComponent.api())
+class ListViewModel(private val repository: HomesRepository) : ViewModel() {
 
     val homeList = repository.homes
 

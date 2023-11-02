@@ -17,9 +17,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class DetailViewModel(application: Application) : ViewModel() {
-
-    private val repository: HomesRepository = HomesRepository(getDatabase(application),(application as ListAndDetailApplication).appComponent.api())
+class DetailViewModel(private val repository: HomesRepository) : ViewModel() {
 
     private var _home = MutableLiveData<DatabaseHome>()
     val home: LiveData<DatabaseHome>
