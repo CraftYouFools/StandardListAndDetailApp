@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.domain
+package com.standardListAndDetailApp.repository.domain
 
 data class CloudHomeItem(
     val bedrooms: Int?,

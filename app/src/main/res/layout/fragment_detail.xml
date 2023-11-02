@@ -9,7 +9,7 @@
         <import type="android.R.drawable" />
         <variable
             name="viewModel"
-            type="com.standardListAndDetailApp.viewmodel.DetailViewModel"/>
+            type="com.standardListAndDetailApp.screens.viewmodel.DetailViewModel"/>
         <variable
             name="p"
             type="com.standardListAndDetailApp.repository.database.DatabaseHome" />

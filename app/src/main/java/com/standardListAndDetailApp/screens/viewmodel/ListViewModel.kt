@@ -1,12 +1,9 @@
-package com.standardListAndDetailApp.viewmodel
+package com.standardListAndDetailApp.screens.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.standardListAndDetailApp.ListAndDetailApplication
-import com.standardListAndDetailApp.repository.database.getDatabase
 import com.standardListAndDetailApp.repository.HomesRepository
 import kotlinx.coroutines.launch
 import java.io.IOException

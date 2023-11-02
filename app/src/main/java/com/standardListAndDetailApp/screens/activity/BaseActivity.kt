@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.ui.activity
+package com.standardListAndDetailApp.screens.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import com.standardListAndDetailApp.ListAndDetailApplication

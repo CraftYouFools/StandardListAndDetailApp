@@ -1,6 +1,5 @@
-package com.standardListAndDetailApp.viewmodel
+package com.standardListAndDetailApp.screens.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.standardListAndDetailApp.repository.HomesRepository

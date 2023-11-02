@@ -2,7 +2,7 @@ package com.standardListAndDetailApp.repository.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.standardListAndDetailApp.domain.CloudHomeItem
+import com.standardListAndDetailApp.repository.domain.CloudHomeItem
 
 @Entity
 data class DatabaseHome constructor(

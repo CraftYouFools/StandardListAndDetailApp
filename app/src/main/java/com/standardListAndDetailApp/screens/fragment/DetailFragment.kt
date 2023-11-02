@@ -1,22 +1,15 @@
-package com.standardListAndDetailApp.ui.fragment
+package com.standardListAndDetailApp.screens.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.standardlistanddetailapplicationcontent.R
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentDetailBinding
-import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
 import com.standardListAndDetailApp.repository.HomesRepository
-import com.standardListAndDetailApp.viewmodel.DetailViewModel
-import com.standardListAndDetailApp.viewmodel.ViewModelFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+import com.standardListAndDetailApp.screens.viewmodel.DetailViewModel
+import com.standardListAndDetailApp.screens.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 

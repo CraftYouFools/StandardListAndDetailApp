@@ -1,11 +1,10 @@
 package com.standardListAndDetailApp.navigation
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.standardlistanddetailapplicationcontent.R
 import com.standardListAndDetailApp.repository.database.DatabaseHome
-import com.standardListAndDetailApp.ui.fragment.DetailFragment
-import com.standardListAndDetailApp.ui.fragment.ListFragment
+import com.standardListAndDetailApp.screens.fragment.DetailFragment
+import com.standardListAndDetailApp.screens.fragment.ListFragment
 import javax.inject.Inject
 
 class Navigator @Inject constructor(private val fragmentManager: FragmentManager) : INavigator {

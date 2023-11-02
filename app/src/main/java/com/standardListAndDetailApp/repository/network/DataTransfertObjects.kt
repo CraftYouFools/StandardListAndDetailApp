@@ -3,7 +3,7 @@ package com.standardListAndDetailApp.repository.network
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import com.standardListAndDetailApp.repository.database.DatabaseHome
-import com.standardListAndDetailApp.domain.CloudHomeItem
+import com.standardListAndDetailApp.repository.domain.CloudHomeItem
 
 @JsonClass(generateAdapter = true)
 data class NetWorkHomeListItemContainer(@Json(name = "items") val homeItemList: List<HomeItem>)

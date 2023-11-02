@@ -1,20 +1,12 @@
-package com.standardListAndDetailApp.viewmodel
+package com.standardListAndDetailApp.screens.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
-import com.standardListAndDetailApp.ListAndDetailApplication
 import com.standardListAndDetailApp.repository.database.DatabaseHome
-import com.standardListAndDetailApp.repository.database.getDatabase
 import com.standardListAndDetailApp.repository.HomesRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

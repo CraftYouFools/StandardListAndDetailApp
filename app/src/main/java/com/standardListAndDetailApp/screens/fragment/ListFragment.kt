@@ -1,24 +1,18 @@
-package com.standardListAndDetailApp.ui.fragment
+package com.standardListAndDetailApp.screens.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.AsyncListDiffer.ListListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
 import com.google.android.material.snackbar.Snackbar
-import com.standardListAndDetailApp.repository.database.DatabaseHome
 import com.standardListAndDetailApp.navigation.INavigator
-import com.standardListAndDetailApp.navigation.Navigator
 import com.standardListAndDetailApp.repository.HomesRepository
-import com.standardListAndDetailApp.ui.adapter.ListAdapter
-import com.standardListAndDetailApp.viewmodel.ListViewModel
-import com.standardListAndDetailApp.viewmodel.ViewModelFactory
+import com.standardListAndDetailApp.screens.adapter.ListAdapter
+import com.standardListAndDetailApp.screens.viewmodel.ListViewModel
+import com.standardListAndDetailApp.screens.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 class ListFragment : BaseFragment() {

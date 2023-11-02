@@ -1,11 +1,11 @@
-package com.standardListAndDetailApp.ui.fragment
+package com.standardListAndDetailApp.screens.fragment
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import com.example.standardlistanddetailapplicationcontent.R
 import com.standardListAndDetailApp.di.presentation.PresentationModule
-import com.standardListAndDetailApp.ui.activity.BaseActivity
+import com.standardListAndDetailApp.screens.activity.BaseActivity
 
 @BindingAdapter("app:setImageDrawableP")
 fun setImageDrawableP(view: ImageView, add: Boolean) {
