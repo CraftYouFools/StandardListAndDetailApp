@@ -38,11 +38,14 @@ class DetailFragment : BaseFragment() {
     @Inject
     lateinit var repository: HomesRepository
 
+    @Inject
+    lateinit var myViewModelFactory: ViewModelFactory
+
     private val viewModel: DetailViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProvider(this, ViewModelFactory(repository))[DetailViewModel::class.java]
+        ViewModelProvider(this, myViewModelFactory)[DetailViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

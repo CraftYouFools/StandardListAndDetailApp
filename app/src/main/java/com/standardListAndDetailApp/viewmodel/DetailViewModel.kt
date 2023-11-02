@@ -16,8 +16,9 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailViewModel(private val repository: HomesRepository) : ViewModel() {
+class DetailViewModel @Inject constructor(private val repository: HomesRepository) : ViewModel() {
 
     private var _home = MutableLiveData<DatabaseHome>()
     val home: LiveData<DatabaseHome>

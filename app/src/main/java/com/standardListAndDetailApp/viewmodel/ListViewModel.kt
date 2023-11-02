@@ -10,8 +10,9 @@ import com.standardListAndDetailApp.database.getDatabase
 import com.standardListAndDetailApp.repository.HomesRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
+import javax.inject.Inject
 
-class ListViewModel(private val repository: HomesRepository) : ViewModel() {
+class ListViewModel @Inject constructor(private val repository: HomesRepository) : ViewModel() {
 
     val homeList = repository.homes
 

@@ -29,13 +29,16 @@ class ListFragment : BaseFragment() {
     @Inject
     lateinit var repository: HomesRepository
 
+    @Inject
+    lateinit var myViewModelFactory: ViewModelFactory
+
     private lateinit var binding: FragmentListBinding
 
     private val viewModel: ListViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProvider(this, ViewModelFactory(repository))[ListViewModel::class.java]
+        ViewModelProvider(this, myViewModelFactory)[ListViewModel::class.java]
     }
 
     private lateinit var adapter : ListAdapter
