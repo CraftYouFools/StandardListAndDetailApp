@@ -31,7 +31,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.StandardListAndDetailApplicationContent" >
         <activity
-            android:name="com.standardListAndDetailApp.ui.activity.MainActivity"
+            android:name="com.standardListAndDetailApp.screens.activity.MainActivity"
             android:allowEmbedded="false"
             android:exported="true" >
             <intent-filter>

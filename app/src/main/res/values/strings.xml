@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">StandardListAndDetailApplicationContent</string>
+
+    <string name="surface_unit">m²</string>
+    <string name="local_currency">€</string>
+
+    <string name="price">Prix :</string>
+    <string name="surface_area">Surface :</string>
+
+    <string name="room_number">Nombre de chambres :</string>
+    <string name="contact">Contact :</string>
+
+
 </resources>

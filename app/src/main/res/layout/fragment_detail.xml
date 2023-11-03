@@ -16,6 +16,7 @@
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:padding="@dimen/standard_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -24,20 +25,20 @@
             android:id="@+id/tv_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/standard_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@{p.homeType}"
             android:visibility="@{p.homeType==null ? View.GONE : View.VISIBLE}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="@dimen/standard_padding">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_house"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:padding="8dp"
+                android:layout_height="@dimen/standard_presentation_iv_height"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +50,9 @@
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E15B6395"
+                android:background="@color/standard_title_background_color"
                 android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="@dimen/standard_padding"
                 android:text="@{p.city}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:visibility="@{p.city==null ? View.GONE : View.VISIBLE}"
@@ -66,32 +67,32 @@
             android:id="@+id/tv_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@{`Prix : `+p.price+` €`}"
+            android:layout_margin="@dimen/standard_padding"
+            android:text="@{@string/price+` `+p.price+` `+@string/local_currency}"
             android:visibility="@{p.price==null ? View.GONE : View.VISIBLE}" />
 
         <TextView
             android:id="@+id/tv_surface_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@{`Surface : `+p.area+` m²`}"
+            android:layout_margin="@dimen/standard_padding"
+            android:text="@{@string/surface_area+` `+p.area+` `+@string/surface_unit}"
             android:visibility="@{p.area==null ? View.GONE : View.VISIBLE}" />
 
         <TextView
             android:id="@+id/tv_room_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`Nombre de chambres : `+p.rooms.toString()}"
-            android:layout_margin="8dp"
+            android:text="@{@string/room_number+` `+p.rooms.toString()}"
+            android:layout_margin="@dimen/standard_padding"
             android:visibility="@{p.rooms==null ? View.GONE : View.VISIBLE}" />
 
         <TextView
             android:id="@+id/tv_professional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`Contact : `+p.professional}"
-            android:layout_margin="8dp"
+            android:text="@{@string/contact+` `+p.professional}"
+            android:layout_margin="@dimen/standard_padding"
             android:visibility="@{p.professional==null ? View.GONE : View.VISIBLE}" />
 
 
