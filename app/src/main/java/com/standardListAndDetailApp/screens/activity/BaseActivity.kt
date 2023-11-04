@@ -22,6 +22,7 @@ open class BaseActivity: AppCompatActivity() {
     protected val injector: PresentationComponent get() = presentationComponent
 
 
+
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount == 0) {
             finish()

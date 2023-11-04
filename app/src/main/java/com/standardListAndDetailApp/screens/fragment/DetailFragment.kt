@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentDetailBinding
@@ -34,6 +35,10 @@ class DetailFragment : BaseFragment() {
     @Inject
     lateinit var myViewModelFactory: ViewModelFactory
 
+    @Inject
+    @JvmField
+    var supportActionBar: ActionBar?=null
+
     private val viewModel: DetailViewModel by lazy {
         ViewModelProvider(this, myViewModelFactory)[DetailViewModel::class.java]
     }
@@ -50,6 +55,9 @@ class DetailFragment : BaseFragment() {
         homeId?.let {
             viewModel.getHome(it)
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onCreateView(

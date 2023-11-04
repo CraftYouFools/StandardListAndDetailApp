@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardlistanddetailapplicationcontent.databinding.FragmentListBinding
@@ -25,6 +26,10 @@ class ListFragment : BaseFragment() {
 
     @Inject
     lateinit var myViewModelFactory: ViewModelFactory
+
+    @Inject
+    @JvmField
+    var supportActionBar: ActionBar?=null
 
     private lateinit var binding: FragmentListBinding
 
@@ -70,6 +75,8 @@ class ListFragment : BaseFragment() {
         viewModel.eventNetworkError.observe(viewLifecycleOwner) { isNetworkError ->
             if (isNetworkError) onNetworkError()
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         return binding.root
     }

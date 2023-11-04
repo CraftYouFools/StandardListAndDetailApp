@@ -1,5 +1,6 @@
 package com.standardListAndDetailApp.di.activity
 
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.standardListAndDetailApp.navigation.INavigator
@@ -15,6 +16,9 @@ class ActivityModule(private val activity: AppCompatActivity) {
 
     @Provides
     fun fragmentManager() = activity.supportFragmentManager
+
+    @Provides
+    fun actionBar():ActionBar? = activity.supportActionBar
 
     @Provides
     @ActivityScope
