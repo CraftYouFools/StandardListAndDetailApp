@@ -1,4 +1,4 @@
-package com.standardListAndDetailApp.repository.network
+package com.standardListAndDetailApp.repository.mapper
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -24,27 +24,6 @@ data class HomeItem(
     val offerType: Int?,
     val rooms : Int?,
 )
-
-/**
- * Convert Network results to database objects
- */
-fun NetWorkHomeListItemContainer.asDomainModel(): List<CloudHomeItem> {
-    return homeItemList.map {
-        CloudHomeItem(
-            it.bedrooms,
-            it.city,
-            it.id,
-            it.area,
-            it.url,
-            it.price,
-            it.professional,
-            it.propertyType,
-            it.offerType,
-            it.rooms,
-        )
-    }
-}
-
 
 /**
  * Convert Network results to database objects
@@ -83,6 +62,25 @@ fun NetWorkHomeItemContainer.asDatabaseModel(): DatabaseHome {
             offerType,
             rooms,
         )
+    }
+}
+
+/**
+ * Map databaseHome to domain entities
+ */
+fun List<DatabaseHome>.asDomainModel(): List<CloudHomeItem> {
+    return map {
+        CloudHomeItem(
+            it.bedrooms,
+            it.city,
+            it.id,
+            it.area,
+            it.url,
+            it.price,
+            it.professional,
+            it.homeType,
+            it.offerType,
+            it.rooms,)
     }
 }
 

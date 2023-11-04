@@ -60,6 +60,7 @@ dependencies {
 
 
     implementation("androidx.room:room-common:2.6.0")
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
     kapt("androidx.room:room-compiler:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
 
@@ -69,9 +70,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     val moshi_version by extra { "1.15.0" }
-    implementation ("com.squareup.moshi:moshi:$moshi_version")
-    implementation ("com.squareup.moshi:moshi-kotlin:$moshi_version")
-    kapt ("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
+    implementation ("com.squareup.moshi:moshi:1.15.0")
+    implementation ("com.squareup.moshi:moshi-kotlin:1.15.0")
+    kapt ("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
 
 
     testImplementation("junit:junit:4.13.2")
@@ -89,15 +90,9 @@ dependencies {
 
 
     //dagger2
-    api ("com.google.dagger:dagger:2.24")
-    api ("com.google.dagger:dagger-android:2.24")
-    //api ("com.google.dagger:dagger-android-support:2.24")
-
-    annotationProcessor ("com.google.dagger:dagger-compiler:2.24")
-    kapt ("com.google.dagger:dagger-compiler:2.24")
-
-    annotationProcessor ("com.google.dagger:dagger-android-processor:2.24")
-    kapt ("com.google.dagger:dagger-android-processor:2.24")
+    val dagger_version by extra { "2.40" }
+    implementation ("com.google.dagger:dagger:2.48.1")
+    kapt ("com.google.dagger:dagger-compiler:2.48.1")
 
     compileOnly ("javax.annotation:jsr250-api:1.0")
     implementation ("javax.inject:javax.inject:1")

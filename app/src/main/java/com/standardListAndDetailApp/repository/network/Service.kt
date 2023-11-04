@@ -1,5 +1,7 @@
 package com.standardListAndDetailApp.repository.network
 
+import com.standardListAndDetailApp.repository.mapper.NetWorkHomeItemContainer
+import com.standardListAndDetailApp.repository.mapper.NetWorkHomeListItemContainer
 import retrofit2.http.GET
 import retrofit2.http.Path
 

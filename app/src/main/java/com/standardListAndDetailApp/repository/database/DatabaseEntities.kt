@@ -18,23 +18,3 @@ data class DatabaseHome constructor(
     val offerType: Int?,
     val rooms: Int?,
 )
-
-
-/**
- * Map databaseHome to domain entities
- */
-fun List<DatabaseHome>.asDomainModel(): List<CloudHomeItem> {
-    return map {
-        CloudHomeItem(
-            it.bedrooms,
-            it.city,
-            it.id,
-            it.area,
-            it.url,
-            it.price,
-            it.professional,
-            it.homeType,
-            it.offerType,
-            it.rooms,)
-    }
-}
