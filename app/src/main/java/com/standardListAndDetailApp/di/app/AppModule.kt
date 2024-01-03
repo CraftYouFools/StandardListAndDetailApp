@@ -2,9 +2,9 @@ package com.standardListAndDetailApp.di.app
 
 import android.app.Application
 import com.standardListAndDetailApp.Constants
-import com.standardListAndDetailApp.repository.database.HomesDatabase
-import com.standardListAndDetailApp.repository.database.getDatabase
-import com.standardListAndDetailApp.repository.network.ListingsServiceApi
+import com.standardListAndDetailApp.shared.data.repository.database.HomesDatabase
+import com.standardListAndDetailApp.shared.data.repository.database.getDatabase
+import com.standardListAndDetailApp.shared.data.repository.network.ListingsServiceApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

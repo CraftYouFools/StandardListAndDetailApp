@@ -10,6 +10,7 @@
     <string name="room_number">Room number :</string>
     <string name="contact">Contact :</string>
     <string name="real_estate_app">Real Estate App</string>
+    <string name="no_data_available">No data available</string>
 
 
 </resources>

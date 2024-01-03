@@ -9,92 +9,119 @@
         <import type="android.R.drawable" />
         <variable
             name="viewModel"
-            type="com.standardListAndDetailApp.screens.viewmodel.DetailViewModel"/>
+            type="com.standardListAndDetailApp.home_detail.presentation.viewmodel.DetailViewModel"/>
         <variable
             name="p"
-            type="com.standardListAndDetailApp.repository.database.DatabaseHome" />
+            type="com.standardListAndDetailApp.home_detail.business.HomeDetails" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:padding="@dimen/standard_padding"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="match_parent"
+            android:id="@+id/errorTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/standard_margin"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:text="@{p.homeType}"
-            android:visibility="@{p.homeType==null ? View.GONE : View.VISIBLE}" />
+            android:text="@string/no_data_available"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linear_layout_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linear_layout_details" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/pb_details"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/linear_layout_details"
+            app:layout_constraintEnd_toEndOf="@+id/linear_layout_details"
+            app:layout_constraintStart_toStartOf="@+id/linear_layout_details"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_layout_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:padding="@dimen/standard_padding">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_house"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/standard_presentation_iv_height"
-                android:scaleType="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:loadImage="@{p.url}"
-                app:setImageDrawableP="@{p.url==null}" />
-
             <TextView
-                android:id="@+id/location"
+                android:id="@+id/tv_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/standard_title_background_color"
-                android:gravity="center_vertical"
-                android:padding="@dimen/standard_padding"
-                android:text="@{p.city}"
+                android:layout_margin="@dimen/standard_margin"
+                android:text="@{p.homeType}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:visibility="@{p.city==null ? View.GONE : View.VISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_house"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:visibility="@{p.homeType==null ? View.GONE : View.VISIBLE}" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/standard_padding">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_house"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/standard_presentation_iv_height"
+                    android:scaleType="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadImage="@{p.url}"
+                    app:setImageDrawableP="@{p.url==null}" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/standard_title_background_color"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/standard_padding"
+                    android:text="@{p.city}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:visibility="@{p.city==null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_house"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/standard_padding"
-            android:text="@{@string/price+` `+p.price+` `+@string/local_currency}"
-            android:visibility="@{p.price==null ? View.GONE : View.VISIBLE}" />
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_padding"
+                android:text="@{@string/price+` `+p.price+` `+@string/local_currency}"
+                android:visibility="@{p.price==null ? View.GONE : View.VISIBLE}" />
 
-        <TextView
-            android:id="@+id/tv_surface_area"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/standard_padding"
-            android:text="@{@string/surface_area+` `+p.area+` `+@string/surface_unit}"
-            android:visibility="@{p.area==null ? View.GONE : View.VISIBLE}" />
+            <TextView
+                android:id="@+id/tv_surface_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_padding"
+                android:text="@{@string/surface_area+` `+p.area+` `+@string/surface_unit}"
+                android:visibility="@{p.area==null ? View.GONE : View.VISIBLE}" />
 
-        <TextView
-            android:id="@+id/tv_room_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/room_number+` `+p.rooms.toString()}"
-            android:layout_margin="@dimen/standard_padding"
-            android:visibility="@{p.rooms==null ? View.GONE : View.VISIBLE}" />
+            <TextView
+                android:id="@+id/tv_room_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_padding"
+                android:text="@{@string/room_number+` `+p.rooms.toString()}"
+                android:visibility="@{p.rooms==null ? View.GONE : View.VISIBLE}" />
 
-        <TextView
-            android:id="@+id/tv_professional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/contact+` `+p.professional}"
-            android:layout_margin="@dimen/standard_padding"
-            android:visibility="@{p.professional==null ? View.GONE : View.VISIBLE}" />
+            <TextView
+                android:id="@+id/tv_professional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_padding"
+                android:text="@{@string/contact+` `+p.professional}"
+                android:visibility="@{p.professional==null ? View.GONE : View.VISIBLE}" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

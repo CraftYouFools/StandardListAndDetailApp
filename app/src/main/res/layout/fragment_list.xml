@@ -8,7 +8,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.standardListAndDetailApp.screens.viewmodel.ListViewModel" />
+            type="com.standardListAndDetailApp.home_list.presentation.viewmodel.ListViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

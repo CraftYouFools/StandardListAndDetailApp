@@ -1,8 +1,8 @@
 package com.standardListAndDetailApp.di.presentation
 
-import com.standardListAndDetailApp.screens.activity.MainActivity
-import com.standardListAndDetailApp.screens.fragment.DetailFragment
-import com.standardListAndDetailApp.screens.fragment.ListFragment
+import com.standardListAndDetailApp.home_detail.presentation.fragment.DetailFragment
+import com.standardListAndDetailApp.shared.presentation.activity.MainActivity
+import com.standardListAndDetailApp.home_list.presentation.fragment.ListFragment
 import dagger.Subcomponent
 
 @PresentationScope

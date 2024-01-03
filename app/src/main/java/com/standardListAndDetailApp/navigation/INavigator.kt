@@ -1,8 +1,8 @@
 package com.standardListAndDetailApp.navigation
 
-import com.standardListAndDetailApp.repository.database.DatabaseHome
+import com.standardListAndDetailApp.shared.data.repository.database.HomeEntity
 
 interface INavigator {
-    fun navigateToHomeDetail(home: DatabaseHome)
+    fun navigateToHomeDetail(home: HomeEntity)
     fun attachHomeList()
 }
