@@ -1,6 +1,5 @@
 package com.standardListAndDetailApp.whish_list.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +11,6 @@ import com.standardListAndDetailApp.whish_list.presentation.HomeWishListViewStat
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import java.io.IOException
 import javax.inject.Inject
@@ -29,7 +27,7 @@ class WishListViewModel @Inject constructor(
         refreshScreen()
     }
 
-    private fun refreshScreen() {
+    fun refreshScreen() {
         viewModelScope.launch(dispatcher) {
             _viewState.postValue(HomeWishListViewState.Loading)
             refreshDataFromRepository()
