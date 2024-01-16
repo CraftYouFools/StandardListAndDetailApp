@@ -8,14 +8,13 @@ import com.standardListAndDetailApp.whish_list.presentation.fragment.WishListFra
 import javax.inject.Inject
 
 class Navigator @Inject constructor(private val fragmentManager: FragmentManager) : INavigator {
+
     override fun navigateToWishList() {
         fragmentManager.beginTransaction()
             .replace(R.id.container, WishListFragment.newInstance())
-            .addToBackStack(DetailFragment.FRAGMENT_LIST_NAME)
             .commit()
     }
 
-    //TODO change to supportFragmentManager provider
     override fun navigateToHomeDetail(homeId: Int) {
         fragmentManager.beginTransaction()
             .replace(R.id.container, DetailFragment.newInstance(homeId))
