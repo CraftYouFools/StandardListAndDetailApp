@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StandardListAndDetailApplicationContent</string>
+    <string name="surface_unit">m²</string>
+    <string name="local_currency">€</string>
+    <string name="price">Price :</string>
+    <string name="surface_area">Surface area :</string>
+    <string name="room_number">Room number :</string>
+    <string name="contact">Contact :</string>
+    <string name="real_estate_app">Real Estate App</string>
+</resources>
